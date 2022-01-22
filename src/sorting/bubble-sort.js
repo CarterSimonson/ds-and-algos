@@ -1,3 +1,5 @@
+import { getRandomArray } from "../util.js";
+
 function swap(arr, idx1, idx2) {
 	const temp = arr[idx1];
 	arr[idx1] = arr[idx2];
@@ -21,4 +23,8 @@ function bubbleSort(arr) {
   return arr;
 }
 
-console.log(bubbleSort([7, 2, 6, 1, 5]));
+console.time('bubbleSort');
+const sorted = bubbleSort(getRandomArray(10000));
+console.timeEnd('bubbleSort');
+
+console.log(sorted);

@@ -1,3 +1,5 @@
+import { getRandomArray } from "../util.js";
+
 function swap(arr, idx1, idx2) {
 	const temp = arr[idx1];
 	arr[idx1] = arr[idx2];
@@ -23,4 +25,8 @@ function selectionSort(arr) {
   return arr;
 }
 
-console.log(selectionSort([7, 2, 6, 1, 5]));
+console.time('selectionSort');
+const sorted = selectionSort(getRandomArray(10000));
+console.timeEnd('selectionSort');
+
+console.log(sorted);

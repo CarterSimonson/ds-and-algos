@@ -1,0 +1,19 @@
+{
+  "name": "ds-and-algos",
+  "version": "1.0.0",
+  "description": "Snippets of data structure and algorithm implementations",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CarterSimonson/ds-and-algos.git"
+  },
+  "author": "Carter Simonson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CarterSimonson/ds-and-algos/issues"
+  },
+  "homepage": "https://github.com/CarterSimonson/ds-and-algos#readme"
+}
