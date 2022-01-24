@@ -1,10 +1,4 @@
-import { getRandomArray } from "../util.js";
-
-function swap(arr, idx1, idx2) {
-	const temp = arr[idx1];
-	arr[idx1] = arr[idx2];
-	arr[idx2] = temp;
-}
+import { getRandomArray, swap } from "../util.js";
 
 function partition(input, left, right) {
   // Select a pivot and move it to the end
