@@ -6,7 +6,7 @@ class Node {
   }
 }
 
-class BinarySearchTree {
+export default class BinarySearchTree {
   constructor() {
     this.root = null;
   }
@@ -84,15 +84,16 @@ class BinarySearchTree {
   }
 }
 
-const binarySearchTree = new BinarySearchTree();
-binarySearchTree.insert(7);
-binarySearchTree.insert(2);
-binarySearchTree.insert(3);
-binarySearchTree.insert(0);
-binarySearchTree.insert(11);
-binarySearchTree.insert(16);
+// Test
+// const binarySearchTree = new BinarySearchTree();
+// binarySearchTree.insert(7);
+// binarySearchTree.insert(2);
+// binarySearchTree.insert(3);
+// binarySearchTree.insert(0);
+// binarySearchTree.insert(11);
+// binarySearchTree.insert(16);
 
-console.log(`BFS: ${binarySearchTree.bfs().map(({val}) => val)}`);
-console.log(`DFS PreOrder: ${binarySearchTree.dfsPreOrder().map(({val}) => val)}`);
-console.log(`DFS InOrder: ${binarySearchTree.dfsInOrder().map(({val}) => val)}`);
-console.log(`DFS PostOrder: ${binarySearchTree.dfsPostOrder().map(({val}) => val)}`);
+// console.log(`BFS: ${binarySearchTree.bfs().map(({val}) => val)}`);
+// console.log(`DFS PreOrder: ${binarySearchTree.dfsPreOrder().map(({val}) => val)}`);
+// console.log(`DFS InOrder: ${binarySearchTree.dfsInOrder().map(({val}) => val)}`);
+// console.log(`DFS PostOrder: ${binarySearchTree.dfsPostOrder().map(({val}) => val)}`);

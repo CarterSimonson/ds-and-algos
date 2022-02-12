@@ -1,4 +1,4 @@
-import { swap } from "../util.js";
+import { swap, getRandomArray } from "../util.js";
 
 function getParentIndex(index) {
   return Math.floor((index - 1) / 2);
@@ -12,7 +12,7 @@ function getRightIndex(index) {
   return 2 * index + 2;
 }
 
-class MaxBinaryHeap {
+export default class MaxBinaryHeap {
   constructor() {
     this.values = [];
   }
@@ -23,7 +23,7 @@ class MaxBinaryHeap {
     let index = this.values.length - 1;
     while (true) {
       const parentIndex = getParentIndex(index);
-      const parent = this.values[parentIndex] || Infinity;
+      const parent = this.values[parentIndex] !== undefined ? this.values[parentIndex] : Infinity;
 
       if (parent < val) {
         swap(this.values, parentIndex, index);
@@ -48,13 +48,13 @@ class MaxBinaryHeap {
     while (true) {
       const leftIndex = getLeftIndex(index);
       const rightIndex = getRightIndex(index);
-      const left = this.values[leftIndex] || -Infinity;
-      const right = this.values[rightIndex] || -Infinity;
+      const left = this.values[leftIndex] !== undefined ? this.values[rightIndex] : -Infinity;
+      const right = this.values[rightIndex] !== undefined ? this.values[rightIndex] : -Infinity;
 
-      if (left > val) {
+      if (left >= right && left > val) {
         swap(this.values, leftIndex, index);
         index = leftIndex;
-      } else if (right > val) {
+      } else if (right >= left && right > val) {
         swap(this.values, rightIndex, index);
         index = rightIndex;
       } else {
@@ -66,14 +66,27 @@ class MaxBinaryHeap {
   }
 }
 
+// Test:
 const maxBinaryHeap = new MaxBinaryHeap();
-maxBinaryHeap.insert(52);
-maxBinaryHeap.insert(12);
-maxBinaryHeap.insert(2);
-maxBinaryHeap.insert(28);
-maxBinaryHeap.insert(33);
-maxBinaryHeap.insert(68);
-maxBinaryHeap.insert(31);
+
+getRandomArray(25, 10).forEach((val) => {
+  maxBinaryHeap.insert(val);
+});
+
 console.log(maxBinaryHeap.values);
-maxBinaryHeap.remove();
-console.log(maxBinaryHeap.values);
+
+function validate() {
+  maxBinaryHeap.values.forEach((val, index) => {
+    const parent = maxBinaryHeap.values[getParentIndex(index)];
+  
+    if (parent !== undefined && parent < val) {
+      console.log(`Invalid! ${parent} is less than ${val}`);
+    }
+  });
+}
+
+validate();
+for(let i = 0; i < maxBinaryHeap.values.length; i++) {
+  maxBinaryHeap.remove();
+}
+validate();

@@ -1,4 +1,4 @@
-import { swap } from "../util.js";
+import { swap, getRandomArray } from "../util.js";
 
 function getParentIndex(index) {
   return Math.floor((index - 1) / 2);
@@ -19,7 +19,7 @@ class Node {
   }
 }
 
-class PriorityQueue {
+export default class MaxPriorityQueue {
   constructor() {
     this.values = [];
   }
@@ -30,7 +30,7 @@ class PriorityQueue {
     let index = this.values.length - 1;
     while (true) {
       const parentIndex = getParentIndex(index);
-      const parentPriority = this.values[parentIndex]?.priority || Infinity;
+      const parentPriority = this.values[parentIndex]?.priority !== undefined ? this.values[parentIndex]?.priority : Infinity;
 
       if (parentPriority < priority) {
         swap(this.values, parentIndex, index);
@@ -55,13 +55,13 @@ class PriorityQueue {
     while (true) {
       const leftIndex = getLeftIndex(index);
       const rightIndex = getRightIndex(index);
-      const leftPriority = this.values[leftIndex]?.priority || -Infinity;
-      const rightPriority = this.values[rightIndex]?.priority || -Infinity;
+      const leftPriority = this.values[leftIndex]?.priority !== undefined ? this.values[leftIndex]?.priority : -Infinity;
+      const rightPriority = this.values[rightIndex]?.priority  !== undefined ? this.values[rightIndex]?.priority : -Infinity;
 
-      if (leftPriority > node?.priority) {
+      if (leftPriority >= rightPriority && leftPriority > node?.priority) {
         swap(this.values, leftIndex, index);
         index = leftIndex;
-      } else if (rightPriority > node?.priority) {
+      } else if (rightPriority >= leftPriority && rightPriority > node?.priority) {
         swap(this.values, rightIndex, index);
         index = rightIndex;
       } else {
@@ -73,15 +73,19 @@ class PriorityQueue {
   }
 }
 
-const priorityQueue = new PriorityQueue();
-priorityQueue.enqueue("take food out of the oven", 3);
-priorityQueue.enqueue("fix ceiling leak", 4);
-priorityQueue.enqueue("eat lunch", 1);
-priorityQueue.enqueue("pay mortgage", 2);
-priorityQueue.enqueue("call 911", 5);
+// Test:
+// const priorityQueue = new MaxPriorityQueue();
 
-console.log(priorityQueue.dequeue());
-console.log(priorityQueue.dequeue());
-console.log(priorityQueue.dequeue());
-console.log(priorityQueue.dequeue());
-console.log(priorityQueue.dequeue());
+// getRandomArray(25, 10).forEach((val) => {
+//   priorityQueue.enqueue(val, val);
+// });
+
+// while(true) {
+//   const next = priorityQueue.dequeue();
+
+//   if (next) {
+//     console.log(next);
+//   } else {
+//     break;
+//   }
+// }

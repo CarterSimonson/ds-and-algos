@@ -20,7 +20,7 @@ function searchChain(key, chain) {
   }
 }
 
-class HashTable {
+export default class HashTable {
   constructor(size = 53) {
     this.keyMap = new Array(size);
   }
@@ -66,17 +66,18 @@ class HashTable {
   }
 }
 
-const hashTable = new HashTable();
+// Test:
+// const hashTable = new HashTable();
 
-hashTable.set('red', '#FF0000');
-hashTable.set('green', '#00FF00');
-hashTable.set('blue', '#0000FF');
-hashTable.set('yellow', '#FFFF00');
+// hashTable.set('red', '#FF0000');
+// hashTable.set('green', '#00FF00');
+// hashTable.set('blue', '#0000FF');
+// hashTable.set('yellow', '#FFFF00');
 
-console.log(`red: ${hashTable.get('red')}`);
-console.log(`green: ${hashTable.get('green')}`);
-console.log(`blue: ${hashTable.get('blue')}`);
-console.log(`yellow: ${hashTable.get('yellow')}`);
+// console.log(`red: ${hashTable.get('red')}`);
+// console.log(`green: ${hashTable.get('green')}`);
+// console.log(`blue: ${hashTable.get('blue')}`);
+// console.log(`yellow: ${hashTable.get('yellow')}`);
 
-console.log(hashTable.keys());
-console.log(hashTable.values());
+// console.log(hashTable.keys());
+// console.log(hashTable.values());

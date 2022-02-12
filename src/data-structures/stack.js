@@ -13,7 +13,7 @@ class Node {
   }
 }
 
-class Stack {
+export default class Stack {
   constructor() {
     this.head = null;
     this.length = 0;
@@ -63,13 +63,14 @@ class Stack {
   }
 }
 
-const stack = new Stack();
-stack.push(1);
-stack.push(2);
-stack.push(3);
-stack.log();
+// Test
+// const stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// stack.log();
 
-console.log('Popping:')
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+// console.log('Popping:')
+// console.log(stack.pop());
+// console.log(stack.pop());
+// console.log(stack.pop());

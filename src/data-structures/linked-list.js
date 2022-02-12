@@ -13,7 +13,7 @@ class Node {
   }
 }
 
-class LinkedList {
+export default class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -191,10 +191,11 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList();
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
-list.log();
+// Test:
+// const list = new LinkedList();
+// list.push(1);
+// list.push(2);
+// list.push(3);
+// list.push(4);
+// list.push(5);
+// list.log();

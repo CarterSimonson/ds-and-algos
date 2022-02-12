@@ -199,11 +199,12 @@ class DoublyLinkedList {
   }
 }
 
-const list = new DoublyLinkedList();
+// Test:
+// const list = new DoublyLinkedList();
 
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(4);
-list.push(5);
-list.log();
+// list.push(1);
+// list.push(2);
+// list.push(3);
+// list.push(4);
+// list.push(5);
+// list.log();

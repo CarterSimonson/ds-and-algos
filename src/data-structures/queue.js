@@ -13,7 +13,7 @@ class Node {
   }
 }
 
-class Queue {
+export default class Queue {
   constructor() {
     this.head = null;
     this.tail = null;
@@ -65,13 +65,14 @@ class Queue {
   }
 }
 
-const queue = new Queue();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-queue.log();
+// Test:
+// const queue = new Queue();
+// queue.enqueue(1);
+// queue.enqueue(2);
+// queue.enqueue(3);
+// queue.log();
 
-console.log('Dequeuing:')
-console.log(queue.dequeue());
-console.log(queue.dequeue());
-console.log(queue.dequeue());
+// console.log('Dequeuing:')
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
